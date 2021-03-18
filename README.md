@@ -6,6 +6,13 @@ Multi-Input-Multi-Output (MIMO) technology, which can significantly improve the 
 In order to solve the problem, many different detection methods are proposed, which can be classified into different families: Linear Detectors, Tree Search Based Detectors, Lattice Reduction Aided Detectors, etc. The most conventional and commonly used detectors are the linear detectors: Zero-Forcing (ZF) detector and Minimum Mean Square Error (MMSE) detector.
 
 In this project, study will firstly base on the ZF and MMSE methods in small-scare MIMO. Depending on the progress of the study, other methods like Tree Search Based detector may be discussed, or it might be extended to the massive MIMO in the future.
+
+References:
+1. [Fifty Years of MIMO Detection: The Road to Large-Scale MIMOs](https://ieeexplore.ieee.org/abstract/document/7244171?casa_token=Q9e-lZrHeLoAAAAA:4HexINijzwDf87INaANIrnvEnxkNYmMJP-6z-t7N2w1t9wi4Fx0zU9H-1aN6mR5Vj_cKwBSPew)
+2. [Massive MIMO Detection Techniques: A Survey](https://ieeexplore.ieee.org/abstract/document/8804165?casa_token=BkEci1NnXzsAAAAA:UV4eSSBgFsDxkmpcThyd6TywXAZxFfvWV5OdXW6W1R12kyutvJLRk5fQaOB4NawYI04hFifObw)
+3. [MIMO-OFDM Wireless Communications with MATLAB](https://ieeexplore.ieee.org/book/5675894)
+                
+
 ## small-scale MIMO detection
 - Implemented 2 most commonly used linear detectors in small-scale MIMO systems: Zero-Forcing (ZF) detector and Minimum-Mean-Square-Error (MMSE) detector.
 - Since the Maximum Likehood (ML) detector corresponds to optimal performance, ML detector was also implemented as a reference.
