@@ -24,7 +24,7 @@ In this project, study will firstly base on the ZF and MMSE methods in small-sca
     4. Jacobi Method (n=4)
     5. Conjugate Gradient(n=3)
     6. to be updated
-- According to simulations, when the ratio of N (the number of receive antennas) and k (the number of user equipments) increased, the approximations converge faster.
+- According to simulations, when the ratio of N (the number of receive antennas) and k (the number of user equipments) increased, the approximations converge faster. (performs better in 128x8 MIMO system)
 - simulation result:
 
 || 64 receiver antennas | 128 reveiver antennas |
