@@ -15,4 +15,20 @@ In this project, study will firstly base on the ZF and MMSE methods in small-sca
 
 ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/small-scale%20MIMO%20detection/MIMOdetection_result.jpg)  
 
-## to be continued
+## large-scale MIMO detection
+- Implemented MMSE detectors in 64x8,64x16,128x8,128x16 MIMO systems, using 64-qam modulation and frequency flat channel model.
+- Due to the increasing dimension of matrices, linear detectors suffer high computational complexity. Thus, different methods are used to reduce the complexity: 
+    1. Neumann Series (with its order n = 3)
+    2. Newton Iteration (iteration number n=3)
+    3. Gauss-Seidel (n=3)
+    4. Jacobi Method (n=4)
+    5. Conjugate Gradient(n=3)
+    6. to be updated
+- According to simulations, when the ratio of N (the number of receive antennas) and k (the number of user equipments) increased, the approximations converge faster.
+- simulation result:
+
+|| 64 receiver antennas | 128 reveiver antennas |
+|:----:| :----: | :----: |
+| 8 users | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/64x8.jpg)  | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/128x8.jpg)  |
+|16 users | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/64x16.jpg) | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/128x16.jpg) |
+
