@@ -4,7 +4,7 @@ Nr = 2;    % num of receiver's antennas (base station)
 Nt = 2;    % num of transmitters (user equipments)
 M = 2;    % use M-psk modulation
 K = 1e5;  % num of symbols transmitted per user
-SNR = 0:2:25; 
+SNR = 0:2:20; 
 bit_number = Nt*K*log2(M); 
 
 %%
@@ -23,14 +23,14 @@ end
 combin_ML = PSK_table(z+1); %every column represents a specific combination
 %%
 %%% coefficient matrix H, transmitted vector x, reveived vector y %%%
-H = randn(Nr, Nt,K)+1i*randn(Nr, Nt,K);
+H = sqrt(0.5)*(randn(Nr, Nt,K)+1i*randn(Nr, Nt,K));
 dataIn = randi([0,M-1],Nt,K);
 dataMod = pskmod(dataIn,M);
 x = dataMod; 
 for i = 1:K
     y(:,i)=H(:,:,i)*x(:,i); %%% received signal y without noise added
 end
-power_rx = trace(y*y')/(Nr*K); %%% signal energy
+power_rx = mean(mean(abs(x).^2)); %%% signal energy
 %%
 %%% initialize SER data %%%
 ser_ZF = zeros(1,length(SNR));
@@ -46,23 +46,20 @@ for i = 1:length(SNR)
     y_noise = y+noise; %%% y = Hx + n noise added
     
     %%
-    %%%%%% ZF detection %%%%%%%%
-    %%% x_ZF = ((H'*H)\H')*y %%%
+    %%%%%% ZF & MMSE detection %%%%%%%%
     for j = 1:K
-        x_ZF(:,j) = ((H(:,:,j)'*H(:,:,j))\(H(:,:,j)'))*y_noise(:,j);
+        Gram = H(:,:,j)'*H(:,:,j); % Gram matrix=H'*H
+        MF = (H(:,:,j)')*y_noise(:,j); % matched filter signal=(H')*y
+        x_ZF(:,j) = Gram\MF; % x_ZF = ((H'*H)\H')*y
+        x_MMSE(:,j) = (Gram+sigma2*diag(ones(1,Nt)))\MF; % x_MMSE=(H'*H+sigma_n2*I)\(H')*y
     end
     dataOut_ZF = pskdemod(x_ZF,M);
     num_error_ZF = sum(dataOut_ZF~=dataIn,'all');
     ser_ZF(i) = num_error_ZF/(Nt*K);
-    %%
-    %%%%%%%%%%%%% MMSE detection %%%%%%%%%%%%%%
-    %%% x_MMSE = ((H'*H + sigma_n2*I)\H')*y %%%
-    for j=1:K
-        x_MMSE(:,j) = (((H(:,:,j)'*H(:,:,j))+sigma2*diag(ones(1,Nt)))\(H(:,:,j)')*y_noise(:,j));
-    end
     dataOut_MMSE = pskdemod(x_MMSE,M);
     num_error_MMSE = sum(dataOut_MMSE~=dataIn,'all');
     ser_MMSE(i) = num_error_MMSE/(Nt*K);
+
     %%
     %%%%%%%% ML detection %%%%%%%%
     %%% x_ML = argmin |y-Hx|^2 %%%
@@ -79,7 +76,6 @@ for i = 1:length(SNR)
     num_error_ML = sum(dataOut_ML~=dataIn,'all');
     ser_ML(i) = num_error_ML/(Nt*K);   
 end
-
 %%
 %%%%%%%%%%%%%%%%%%%%%%%% display %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure;
