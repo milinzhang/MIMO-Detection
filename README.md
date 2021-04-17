@@ -36,7 +36,7 @@ References:
 
 || 64 receiver antennas | 128 reveiver antennas |
 |:----:| :----: | :----: |
-| 8 users | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/64x8.jpg)  | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/128x8.jpg)  |
-|16 users | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/64x16.jpg) | ![image text](https://github.com/milinzhang/MIMO-Detection/blob/main/large_scale%20MIMO%20detection/128x16.jpg) |
+| 8 users | ![image text]()  | ![image text]()  |
+|16 users | ![image text]() | ![image text]() |
 
 ## to be updated
