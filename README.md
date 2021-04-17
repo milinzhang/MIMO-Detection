@@ -25,7 +25,7 @@ References:
 ## large-scale MIMO detection
 - Implemented MMSE detectors in 64x8,64x16,128x8,128x16 MIMO systems, using 64-qam modulation and frequency flat channel model.
 - Due to the increasing dimension of matrices, linear detectors suffer high computational complexity. Thus, different methods are used to reduce the complexity: 
-    1. Neumann Series (with its order n = 3)
+    1. Neumann Series (with its order n = 2)
     2. Newton Iteration (iteration number n=3)
     3. Gauss-Seidel (n=3)
     4. Jacobi Method (n=4)
