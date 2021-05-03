@@ -7,6 +7,8 @@ In order to solve the problem, many different detection methods are proposed, wh
 
 In this project, study will firstly base on the ZF and MMSE methods in small-scare MIMO. Depending on the progress of the study, other methods like Tree Search Based detector may be discussed, or it might be extended to the massive MIMO in the future.
 
+To see more details, please check the [report](https://github.com/milinzhang/MIMO-Detection/blob/main/Repo_ELE851.pdf)
+
 References:
 1. [Fifty Years of MIMO Detection: The Road to Large-Scale MIMOs](https://ieeexplore.ieee.org/abstract/document/7244171?casa_token=Q9e-lZrHeLoAAAAA:4HexINijzwDf87INaANIrnvEnxkNYmMJP-6z-t7N2w1t9wi4Fx0zU9H-1aN6mR5Vj_cKwBSPew)
 2. [Massive MIMO Detection Techniques: A Survey](https://ieeexplore.ieee.org/abstract/document/8804165?casa_token=BkEci1NnXzsAAAAA:UV4eSSBgFsDxkmpcThyd6TywXAZxFfvWV5OdXW6W1R12kyutvJLRk5fQaOB4NawYI04hFifObw)
@@ -31,7 +33,6 @@ References:
     4. Jacobi Method (n=4)
     5. Conjugate Gradient(n=3)
     6. to be updated
-- According to simulations, when the ratio of N (the number of receive antennas) and k (the number of user equipments) increased, the approximations converge faster. (performs better in 128x8 MIMO system)
 - simulation result:
 
 || 64 receiver antennas | 128 reveiver antennas |
